@@ -30,15 +30,12 @@
       formattedURL += '&' + key + '=' + urlParams[key];
     }
 
-    console.log('formatted url', formattedURL);
-
     a.setAttribute('href', formattedURL);
     a.textContent = 'Log in with GitHub';
 
     let infoSection = document.getElementById('info');
 
     let dCookie = document.cookie;
-    console.log('document cookie', dCookie);
     if (!dCookie) {
       infoSection.textContent = 'You are not logged in';
     } else {
@@ -46,8 +43,6 @@
       if (cookies[0] && cookies[1]) {
         let userInfo = cookies[1].split('=')[1];
         let firstName = userInfo.split('%20')[0];
-        console.log('user info', userInfo);
-        console.log(firstName);
         infoSection.textContent = `Welcome, ${firstName}!`;
       }
     }
