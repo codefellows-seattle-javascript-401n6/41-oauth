@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <h1>GitHub OAuth</h1>
+  <a id="auth">auth with GitHub</a>
+  <script>
+    let a = document.getElementById('')
+    let AUTH_URL = 'http://github.com';
+    let urlParams = {
+      client_id: '802f47eaglklsg',
+      redirect_uri: '',
+      state: '' + Math.random(),
+    };
+    let formattedURL = AUTH_URL + '?';
+    for (let key in urlParams) {
+      formattedURL += '&' + key + '=' + urlParams[key];
+    }
+
+    a.setAttribute('href', authUrl);
+    a.textContent = 'login with Github';
+    
+    let clientId = '802f47eaglklsg';
+    let reviewUrl = 'https://github.com/settings/connections/applications/' + clientId;
+    let reviewLink = document.getElementById('review');
+    reviewLink.setAttribute('href', reviewUrl);
+    reviewLink.textContent = 'review permissions';
+  </script>
+</body>
+</html>
