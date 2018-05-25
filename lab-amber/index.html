@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Amber Kim: GitHub OAuth Exercise</title>
+</head>
+
+<body>
+  <h1>Amber Kim GitHub Oauth Exercise</h1>
+
+  <a id="authorize"></a>
+
+  <section id="info"></section>
+
+  <script type="application/javascript">
+    'use strict';
+
+    let a = document.getElementById('authorize');
+    let AUTH_URL = 'https://github.com/login/oauth/authorize';
+    let urlParams = {
+      client_id: 'ae60072a03934f836244',
+      redirect_uri: 'http://localhost:3000/oauth-callback',
+      state: '' + Math.random()
+    };
+    let formattedURL = AUTH_URL + '?';
+    for (let key in urlParams) {
+      formattedURL += '&' + key + '=' + urlParams[key];
+    }
+
+    a.setAttribute('href', formattedURL);
+    a.textContent = 'Log in with GitHub';
+
+    let infoSection = document.getElementById('info');
+
+    let dCookie = document.cookie;
+    if (!dCookie) {
+      infoSection.textContent = 'You are not logged in';
+    } else {
+      let cookies = dCookie.split('; ');
+      if (cookies[0] && cookies[1]) {
+        let userInfo = cookies[1].split('=')[1];
+        let firstName = userInfo.split('%20')[0];
+        infoSection.textContent = `Welcome, ${firstName}!`;
+      }
+    }
+
+  </script>
+</body>
+
+</html>
