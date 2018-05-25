@@ -11,9 +11,6 @@ dotenv.load();
 let PORT = process.env.PORT || 3000;
 
 app.get('/oauth-callback', (req, res) => {
-  console.log('callback', req.query);
-  console.log('code', req.query.code);
-  console.log('state', req.query.state);
 
   let code = req.query.code;
   let state = req.query.state;
@@ -30,7 +27,6 @@ app.get('/oauth-callback', (req, res) => {
       // scopes: 'repo'
     })
     .then(response => {
-      console.log('token', response.body);
       let userUrl = 'https://api.github.com/user';
       let token = response.body.access_token;
       res.cookie('gh-access', token, {maxAge: (1000 * 60 * 60 * 24)});
@@ -38,13 +34,11 @@ app.get('/oauth-callback', (req, res) => {
         .set('Authorization', 'token ' + token);
     })
     .then((response) => {
-      console.log('res body name', response.body.name);
       res.cookie('user', response.body.name, {maxAge: (1000 * 60 * 60 * 24)});
       res.send(response.body);
       res.end();
     })
     .catch(err => {
-      console.log(err.message);
       res.send(err.message);
     });
 });
