@@ -4,32 +4,23 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Document</title>
+  <title>OAuth Login</title>
 </head>
 <body>
-  <h1>GitHub OAuth</h1>
-  <a id="auth">auth with GitHub</a>
+  <h1>Google OAuth Lab</h1>
   <script>
-    let a = document.getElementById('')
-    let AUTH_URL = 'http://github.com';
-    let urlParams = {
-      client_id: '802f47eaglklsg',
-      redirect_uri: '',
-      state: '' + Math.random(),
-    };
-    let formattedURL = AUTH_URL + '?';
-    for (let key in urlParams) {
-      formattedURL += '&' + key + '=' + urlParams[key];
-    }
-
-    a.setAttribute('href', authUrl);
-    a.textContent = 'login with Github';
-    
-    let clientId = '802f47eaglklsg';
-    let reviewUrl = 'https://github.com/settings/connections/applications/' + clientId;
-    let reviewLink = document.getElementById('review');
-    reviewLink.setAttribute('href', reviewUrl);
-    reviewLink.textContent = 'review permissions';
+let a = document.createElement('a');
+      let AUTH_URL = 'https://accounts.google.com/o/oauth2/v2/auth';
+      let clientIDQuery = 'client_id=350563151818-12lpsn5ktvpdoam58020dbt1neqfp5ec.apps.googleusercontent.com';
+      let responseTypeQuery = 'response_type=code';
+      let scopeQuery = 'scope=openid%20profile%20email';
+      let promptQuery = 'prompt=consent';
+      let redirectURIQuery = 'redirect_uri=http://localhost:3000/auth-test';
+      let formattedURL = `${AUTH_URL}?${clientIDQuery}&${responseTypeQuery}&${scopeQuery}&${promptQuery}&${redirectURIQuery}`;
+      a.setAttribute('href', formattedURL);
+      a.textContent = 'login with google';
+      console.log('the URL we built:', formattedURL);
+      document.body.append(a);
   </script>
 </body>
 </html>
