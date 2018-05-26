@@ -6,7 +6,7 @@ const app = express();
 
 require('dotenv').config();
 
-app.get('/oauth/google/code', function(req, res) {
+app.get('/oauth-callback', function(req, res) {
   if (!req.query.code) {
     res.redirect(process.env.CLIENT_URL);
   } else {
@@ -18,7 +18,7 @@ app.get('/oauth/google/code', function(req, res) {
         grant_type: 'authorization_code',
         client_id: process.env.GOOGLE_CLIENT_ID,
         client_secret: process.env.GOOGLE_CLIENT_SECRET,
-        redirect_uri: `${process.env.API_URL}/oauth/google/code`
+        redirect_uri: `${process.env.API_URL}/oauth-callback`
       })
       .then (response => {
         console.log('Response AFTER code is given');
@@ -30,7 +30,9 @@ app.get('/oauth/google/code', function(req, res) {
         console.log('decoded:', decoded);
         // handle oauth login
         res.cookie('X-Some Cookie', idTokenPayload);
+        res.write('<h1>' + json.name + '</h1>');
         res.write('<h1>' + json.email + '</h1>');
+        res.write('<h1>' + json.picture + '</h1>');
         res.end();
       })
       .catch(response => {
@@ -39,9 +41,23 @@ app.get('/oauth/google/code', function(req, res) {
   }
 });
 
-app.get('/auth-test', (req, res) => {
+app.get('/', (req, res) => {
   res.sendFile('./index.html', {root: './'});
 });
+
+// app.get('/profile', (req, res) => {
+//   let isLoggedIn = false;
+//   if (!isLoggedIn) {
+//     res.write('<h1>You Must Log In</h1>');
+//     res.write('<p>Please go to the homepage and auth to log in.</p>');
+//     res.end();
+//     return;
+//   }
+
+//   res.write('<h1>You\'re Logged In</h1>');
+//   res.write('<p>Welcome back!</p>');
+//   res.end();
+// });
 
 app.listen(3000, () => {
   console.log('listen on port 3000');

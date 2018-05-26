@@ -15,7 +15,7 @@ let a = document.createElement('a');
       let responseTypeQuery = 'response_type=code';
       let scopeQuery = 'scope=openid%20profile%20email';
       let promptQuery = 'prompt=consent';
-      let redirectURIQuery = 'redirect_uri=http://localhost:3000/oauth/google/code';
+      let redirectURIQuery = 'redirect_uri=http://localhost:3000/oauth-callback';
       let formattedURL = `${AUTH_URL}?${clientIDQuery}&${responseTypeQuery}&${scopeQuery}&${promptQuery}&${redirectURIQuery}`;
       
       a.setAttribute('href', formattedURL);
