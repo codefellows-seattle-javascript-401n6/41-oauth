@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>GitHub OAuth application</title>
+</head>
+<body>
+    <h1>Github OAuth</h1>
+    <div>
+    <a id ="auth">auth w/Github</a>
+    </div>
+    <script>
+    let a = document.getElementById('auth');
+    let authUrl = 'https://github.com/login/oauth/authorize?';
+    let params = {
+        client_id: '136fd7a515217c1396c1',
+        scope: '',
+        state: '' + Math.random(),
+    };
+    for (let key in params) {
+        authUrl += '&' + key + '=' + params[key];
+    };
+    a.setAttribute('href', authUrl);
+    </script>
+</body>
+</html>
