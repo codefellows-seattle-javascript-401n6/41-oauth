@@ -6,7 +6,7 @@ const app = express();
 
 require('dotenv').config();
 
-app.get('/oauth-callback', function(req, res) {
+app.get('/oauth-callback', (req, res) => {
   if (!req.query.code) {
     res.redirect(process.env.CLIENT_URL);
   } else {

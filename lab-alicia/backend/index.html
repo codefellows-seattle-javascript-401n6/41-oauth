@@ -1,27 +1,41 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>OAuth Login</title>
 </head>
+
 <body>
-  <h1>Google OAuth Lab</h1>
+  <h1>Google OAuth Pratice</h1>
   <script>
-let a = document.createElement('a');
-      let AUTH_URL = 'https://accounts.google.com/o/oauth2/v2/auth';
-      let clientIDQuery = 'client_id=350563151818-12lpsn5ktvpdoam58020dbt1neqfp5ec.apps.googleusercontent.com';
-      let responseTypeQuery = 'response_type=code';
-      let scopeQuery = 'scope=openid%20profile%20email';
-      let promptQuery = 'prompt=consent';
-      let redirectURIQuery = 'redirect_uri=http://localhost:3000/oauth-callback';
-      let formattedURL = `${AUTH_URL}?${clientIDQuery}&${responseTypeQuery}&${scopeQuery}&${promptQuery}&${redirectURIQuery}`;
-      
-      a.setAttribute('href', formattedURL);
-      a.textContent = 'login with google';
-      console.log('the URL we built:', formattedURL);
-      document.body.append(a);
+    let a = document.createElement('a');
+    let AUTH_URL = 'https://accounts.google.com/o/oauth2/v2/auth';
+    let clientIDQuery = 'client_id=350563151818-12lpsn5ktvpdoam58020dbt1neqfp5ec.apps.googleusercontent.com';
+    let responseTypeQuery = 'response_type=code';
+    let scopeQuery = 'scope=openid%20profile%20email';
+    let promptQuery = 'prompt=consent';
+    let redirectURIQuery = 'redirect_uri=http://localhost:3000/oauth-callback';
+    let formattedURL =
+      `${AUTH_URL}?${clientIDQuery}&${responseTypeQuery}&${scopeQuery}&${promptQuery}&${redirectURIQuery}`;
+
+    a.setAttribute('href', formattedURL);
+    a.textContent = 'login with google';
+    console.log('the URL we built:', formattedURL);
+    document.body.append(a);
+
+    if (!document.cookie) {
+      a.textContent = 'You are not logged in';
+    } else {
+      let cookies = document.cookie.split('; ');
+      if (cookies[0] && cookies[1]) {
+        let userInfo = cookies[1].split('=')[1];
+        let userName = userInfo.split('%20')[0];
+        a.textContent = `Welcome, ${userName}!`;
+      }
+    }
   </script>
 </body>
 </html>
