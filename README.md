@@ -84,5 +84,4 @@ app.get('/profile', (req, res) => {
 Write a description of the project in your README.md
 
 #### Stretch Goals
-Add more pages to your app that shows additional information fetched from the
-authorized OAuth resources.
+Add more pages to your app that shows additional information fetched from the authorized OAuth resources.
