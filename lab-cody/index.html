@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Cody's OAuth</title>
+</head>
+
+<body>
+    <h1>OAuth app</h1>
+    <div>
+        <a id="authorize"></a>
+    </div>
+
+    <div>
+        <a id="cookie"></a>
+    </div>
+
+    <div>
+        <a id="sax"></a>
+    </div>
+
+    <script>
+        let a = document.getElementById('authorize');
+        let AUTH_URL = 'https://github.com/login/oauth/authorize';
+        let urlParams = {
+            client_id: '9a2a8830018d4a4199e9',
+            redirect_uri: 'http://localhost:3000/oauth-callback',
+            state: '' + Math.random(),
+        };
+        let formattedURL = AUTH_URL + '?';
+        for (let key in urlParams) {
+            formattedURL += '&' + key + '=' + urlParams[key];
+        }
+        a.setAttribute('href', formattedURL);
+        a.textContent = 'login with GitHub';
+
+        let saxUrl = 'https://www.youtube.com/watch?v=GaoLU6zKaws'
+
+        let saxLink = document.getElementById('sax');
+        saxLink.setAttribute('href', saxUrl);
+        saxLink.textContent = 'cant login? enjoy a video!';
+
+        let arnold = document.getElementById('cookie');
+
+        let blitzen = document.cookie;
+        if (!blitzen) {
+            arnold.textContent = 'The cookies are safe on the counter dont eat them!'
+        } else {
+            let reindeer = blitzen.split('; ');
+            let donner = blitzen;
+            let login = donner.split(';')[0];
+            let suspect = login.split('=')[1];
+            arnold.textContent = `${suspect}, Put the cookie Down Now!`
+
+        }
+
+
+
+
+
+    </script>
+</body>
+
+</html>
