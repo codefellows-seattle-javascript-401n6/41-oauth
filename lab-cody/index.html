@@ -46,12 +46,12 @@
         if (!blitzen) {
             arnold.textContent = 'The cookies are safe on the counter dont eat them!'
         } else {
-            let donner = blitzen.split('; ');
-            if (donner[0] && donner[1]) {
-                let suspect = donner[1].split('=')[1];
-                let firstName = suspect.split('%20')[0];
-                arnold.textContent = `${firstName}, Put the cookie Down Now!`
-            }
+            let reindeer = blitzen.split('; ');
+            let donner = blitzen;
+            let login = donner.split(';')[0];
+            let suspect = login.split('=')[1];
+            arnold.textContent = `${suspect}, Put the cookie Down Now!`
+
         }
 
 

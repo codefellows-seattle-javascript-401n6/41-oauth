@@ -34,7 +34,7 @@ app.get('/oauth-callback', function(req, res) {
       return superagent.get(userUrl).set('Authorization', 'token ' + token);
     })
     .then(responce => {
-      res.cookie('user', responce.body.name, { maxAge: 1000 * 60 * 60 * 24 });
+      res.cookie('user', responce.body.login, { maxAge: 1000 * 60 * 60 * 24 });
       res.send(responce.body);
       res.end();
     })
