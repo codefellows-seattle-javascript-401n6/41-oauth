@@ -10,9 +10,11 @@
     <div>
         <a id="authorize"></a>
     </div>
+
     <div>
-        <a id="review"></a>
+        <a id="cookie"></a>
     </div>
+
     <div>
         <a id="sax"></a>
     </div>
@@ -31,18 +33,30 @@
         }
         a.setAttribute('href', formattedURL);
         a.textContent = 'login with GitHub';
-        console.log('the URL we built:', formattedURL);
-        let clientId = '9a2a8830018d4a4199e9';
-        let reviewUrl = 'https://github.com/settings/connections/applications/' + clientId;
-        let reviewLink = document.getElementById('review');
-        reviewLink.setAttribute('href', reviewUrl);
-        reviewLink.textContent = 'review permissions';
 
         let saxUrl = 'https://www.youtube.com/watch?v=GaoLU6zKaws'
 
         let saxLink = document.getElementById('sax');
         saxLink.setAttribute('href', saxUrl);
         saxLink.textContent = 'cant login? enjoy a video!';
+
+        let arnold = document.getElementById('cookie');
+
+        let blitzen = document.cookie;
+        if (!blitzen) {
+            arnold.textContent = 'The cookies are safe on the counter dont eat them!'
+        } else {
+            let donner = blitzen.split('; ');
+            if (donner[0] && donner[1]) {
+                let suspect = donner[1].split('=')[1];
+                let firstName = suspect.split('%20')[0];
+                arnold.textContent = `${firstName}, Put the cookie Down Now!`
+            }
+        }
+
+
+
+
 
     </script>
 </body>
