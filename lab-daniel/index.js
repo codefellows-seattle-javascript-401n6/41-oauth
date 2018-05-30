@@ -6,7 +6,7 @@ app.get('/', (req, res) => {
     res.sendFile('./index.html', {root: './'});
 })
 
-app.get('/github-login', (req, res) => {
+app.get('/github-oauth', (req, res) => {
     res.send(req)
 })
 app.listen(PORT, () => {
