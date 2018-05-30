@@ -7,6 +7,15 @@
     <title>Github OAuth</title>
 </head>
 <body>
-    
+    <h1>Github OAuth</h1>
+    <div>
+        <a id="gitAuth">Authentication with GitHub</a>
+    </div>
+
+    <script>
+        let a = document.getElementById('gitAuth');
+        let authURL = 'https://github.com/login/oauth/authorize';
+        a.setAttribute('href', authURL);
+    </script>
 </body>
 </html>
