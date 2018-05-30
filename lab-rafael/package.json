@@ -1,0 +1,24 @@
+{
+  "name": "lab-rafael",
+  "version": "1.0.0",
+  "description": "",
+  "main": "./src/server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "dotenv": "^5.0.1",
+    "express": "^4.16.3",
+    "express-session": "^1.15.6",
+    "google-auth-library": "^1.5.0",
+    "googleapis": "^31.0.2",
+    "install": "^0.11.0",
+    "npm": "^6.1.0",
+    "passport": "^0.4.0",
+    "passport-google-oauth20": "^1.0.0",
+    "superagent": "^3.8.3"
+  }
+}
