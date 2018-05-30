@@ -1,0 +1,25 @@
+{
+  "name": "41-oauth",
+  "version": "1.0.0",
+  "description": "* Work in a fork of this repository\r * Work in a branch on your fork\r * Write all of your code in a directory named `lab-` + `<your name>` **e.g.** `lab-duncan`\r * Submit a pull request to this repository\r * Submit a link to your pull request on canvas\r * Submit a question, observation, and how long you spent on canvas",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ixnp/41-oauth.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ixnp/41-oauth/issues"
+  },
+  "homepage": "https://github.com/ixnp/41-oauth#readme",
+  "dependencies": {
+    "dotenv": "^5.0.1",
+    "express": "^4.16.3",
+    "superagent": "^3.8.3"
+  }
+}
