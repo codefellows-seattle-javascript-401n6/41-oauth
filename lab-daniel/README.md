@@ -1,7 +1,7 @@
 # Lab 41 - OAuth
 ## Developer: Daniel Pillay
 
----
+
 
 #### Description: 
 An application thats let's users log into their github utilizing Oauth.
