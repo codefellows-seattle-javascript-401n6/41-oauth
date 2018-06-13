@@ -32,7 +32,7 @@ app.get('/oauth-callback', (req, res) => {
         res.cookie('X-Some Cookie', idTokenPayload);
         res.write('<h1>' + json.name + '</h1>');
         res.write('<h1>' + json.email + '</h1>');
-        res.write('<h1>' + json.picture + '</h1>');
+        res.write('<img src=' + json.picture + '>');
         res.end();
       })
       .catch(response => {
