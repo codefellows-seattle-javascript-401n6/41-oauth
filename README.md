@@ -1,3 +1,15 @@
+#Technologies:
++ nodeJS
++ express
++ superagent
++ dotenv
+
+#Startup instructions:
++ open new terminal and type node index.js (OR nodemon index.js) to get the server running
++ open a new browser window and type http://localhost:3000  to access the website
++ click on the blue link button
+
+
 # ![CF](http://i.imgur.com/7v5ASc8.png) 41 OAuth
 
 ## Submission Instructions

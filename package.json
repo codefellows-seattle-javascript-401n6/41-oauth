@@ -1,0 +1,24 @@
+{
+  "name": "41-oauth",
+  "version": "1.0.0",
+  "description": "## Submission Instructions * Work in a fork of this repository * Work in a branch on your fork * Write all of your code in a directory named `lab-` + `<your name>` **e.g.** `lab-duncan` * Submit a pull request to this repository * Submit a link to your pull request on canvas * Submit a question, observation, and how long you spent on canvas",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SilveredSliver/41-oauth.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/SilveredSliver/41-oauth/issues"
+  },
+  "homepage": "https://github.com/SilveredSliver/41-oauth#readme",
+  "dependencies": {
+    "dotenv": "^6.0.0",
+    "express": "^4.16.3",
+    "superagent": "^3.8.3"
+  }
+}
